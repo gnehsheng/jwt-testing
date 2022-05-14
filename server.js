@@ -5,6 +5,7 @@ const app = express()
 const jwt = require('jsonwebtoken')
 const users = require('./users')
 const transactions = require('./transactions')
+const PORT = process.env.PORT ?? 5000
 
 app.use(express.json())
 
@@ -66,6 +67,6 @@ app.post('/logout', (req, res)=>{
 })
 
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('Listening at port 3000')
 })
