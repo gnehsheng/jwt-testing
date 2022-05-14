@@ -16,7 +16,7 @@ const verifyToken = (req, res, next) => {
         const authToken = req.headers.token
 
         //validate token
-        const decoded = jwt.verify(authToken, process.env.TOKEN_SECRET)
+        const decoded = jwt.verify(authToken, process.env.JWT_SECRET)
 
         //if valid, retrieve username from token
         const username = decoded.datacd 
