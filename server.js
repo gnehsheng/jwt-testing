@@ -8,6 +8,7 @@ const transactions = require('./transactions')
 const PORT = process.env.PORT ?? 5000
 
 app.use(express.json())
+app.use(express.static('public'))
 
 //middleware for protecting secret routes, call it when you need to protect secret routes
 const verifyToken = (req, res, next) => {
@@ -18,7 +19,7 @@ const verifyToken = (req, res, next) => {
         const decoded = jwt.verify(authToken, process.env.TOKEN_SECRET)
 
         //if valid, retrieve username from token
-        const username = decoded.data
+        const username = decoded.datacd 
         req.user = username
 
         next()
